@@ -1,26 +1,41 @@
 package be.pxl.student.entity;
 
-import java.util.Date;
 
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
+
+
+@Entity
+@Table(name = "Payment")
 public class Payment {
 
-    private Date date;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
+    @ManyToOne
+    private Account counterAccount;
+    @ManyToOne
+    private Account account;
+    private LocalDateTime date;
     private float amount;
     private String currency;
     private String detail;
 
-    public Payment(Date date, float amount, String currency, String detail) {
+    public  Payment(){/*enkel in jpa*/}
+
+    public Payment(LocalDateTime date, float amount, String currency, String detail) {
         this.date = date;
         this.amount = amount;
         this.currency = currency;
         this.detail = detail;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
