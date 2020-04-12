@@ -72,4 +72,24 @@ public class Payment {
                 ", detail='" + detail + '\'' +
                 '}';
     }
+
+    public void setCounterAccount(Account counterAccount) {
+        this.counterAccount = counterAccount;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public Account getCounterAccount() {
+        return counterAccount;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
 }
