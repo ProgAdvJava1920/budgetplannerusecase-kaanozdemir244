@@ -5,7 +5,7 @@
     <groupId>be.pxl.student</groupId>
     <artifactId>BudgetPlanner</artifactId>
     <version>SNAPSHOT-1.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>BudgetPlanner</name>
     <url>http://maven.apache.org</url>
@@ -17,20 +17,29 @@
         <log.level>debug</log.level>
     </properties>
 
-    <dependencies>
+    <build>
+        <finalName>BudgetPlanner</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomee.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>8.0.1</version>
+            </plugin>
+        </plugins>
+    </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0.1</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.5.2</version>
-            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
@@ -44,6 +53,12 @@
             <version>2.13.0</version>
         </dependency>
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
             <version>2.4.4</version>
@@ -53,5 +68,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.12.Final</version>
         </dependency>
+
     </dependencies>
 </project>

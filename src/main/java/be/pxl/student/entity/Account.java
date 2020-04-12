@@ -5,14 +5,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@NamedQueries(@NamedQuery(name="findByName", query = "SELECT a FROM Account a WHERE a.name=:name"))
+@NamedQueries({
+        @NamedQuery(name="findByName", query = "SELECT a FROM Account a WHERE a.name=:name"),
+        @NamedQuery(name="findByIBAN", query = "SELECT a FROM Account a WHERE a.IBAN=:iban")
+})
 public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String IBAN;
     private String name;
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account", cascade = CascadeType.MERGE)
     private List<Payment> payments;
 
     public String getIBAN() {
