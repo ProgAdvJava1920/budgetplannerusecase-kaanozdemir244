@@ -18,19 +18,18 @@ public class AccountMapper {
         if(paymentInfo.length!=7){
             throw new InvalidPaymentException("Invalid number of fields in line");
         }
-        Account account = new Account();
+        var account = new Account();
         account.setIBAN(paymentInfo[1]);
         account.setName(paymentInfo[0]);
-        account.setPayments(getPaymentsFromLine(line));
-
         return account;
     }
-
+/*
+nu in de paymentMapper en counterAccountMapper
     public static List<Payment> getPaymentsFromLine(String line) {
         List<Payment> payments = new ArrayList<>();
         String[] paymentInfo = line.split(",");
         LocalDateTime date = LocalDateTime.parse(paymentInfo[3], DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US));
         payments.add(new Payment(date, Float.parseFloat(paymentInfo[4]), paymentInfo[5], paymentInfo[6]));
         return payments;
-    }
+    }*/
 }

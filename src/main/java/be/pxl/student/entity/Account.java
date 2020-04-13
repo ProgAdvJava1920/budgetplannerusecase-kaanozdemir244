@@ -42,6 +42,11 @@ public class Account {
         this.payments = payments;
     }
 
+    public void addPayment(Payment payment){
+        payment.setAccount(this);
+        this.payments.add(payment);
+    }
+
     @Override
     public String toString() {
         return "Account{" +
