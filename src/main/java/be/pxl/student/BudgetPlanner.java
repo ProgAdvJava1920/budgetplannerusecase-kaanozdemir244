@@ -17,7 +17,7 @@ public class BudgetPlanner {
         EntityManager entityManager = null;
 
         try{
-            entityManagerFactory = Persistence.createEntityManagerFactory("budgetplannerdb_pu");
+            entityManagerFactory = Persistence.createEntityManagerFactory("budgetplanner");
             entityManager = entityManagerFactory.createEntityManager();
             BudgetPlannerImporter budgetPlannerImporter = new BudgetPlannerImporter(entityManager);
             budgetPlannerImporter.importCsv(bankAfschriften);

@@ -37,9 +37,6 @@ public class BudgetPlannerImporter {
     Path bankAfschriften = Path.of("C://Users//32488/IdeaProjects/budgetPlannerUseCase-kaanozdemir244/src/main/resources/account_payments.csv");
 
 
-    public List<Account> accountList = new ArrayList<>();
-
-
     public BudgetPlannerImporter(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -103,6 +100,9 @@ public class BudgetPlannerImporter {
         if (createdAccounts.containsKey(account.getIBAN())) {
             return createdAccounts.get(account.getIBAN());
         } else {
+            if(account.getName()==null){
+                account.setName("betaling");
+            }
             entityManager.persist(account);
             createdAccounts.put(account.getIBAN(), account);
             return account;

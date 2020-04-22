@@ -13,7 +13,7 @@ public class AccountMapper {
     public static List<Account> accountList = new ArrayList<>();
     public static List<Payment> payments = new ArrayList<>();
 
-    public static Account mapToAccount(String line) throws InvalidPaymentException {
+    public Account mapToAccount(String line) throws InvalidPaymentException {
         String[] paymentInfo = line.split(",");
         if(paymentInfo.length!=7){
             throw new InvalidPaymentException("Invalid number of fields in line");
