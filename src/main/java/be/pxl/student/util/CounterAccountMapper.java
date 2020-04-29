@@ -10,6 +10,7 @@ public class CounterAccountMapper {
         }
         Account account = new Account();
         account.setIBAN(splitLines[2]);
+
         return account;
     }
 }

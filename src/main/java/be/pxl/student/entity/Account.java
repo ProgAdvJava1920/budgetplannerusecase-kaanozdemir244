@@ -14,7 +14,7 @@ public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
     private String IBAN;
     private String name;
     @OneToMany(mappedBy = "account", cascade = CascadeType.MERGE)

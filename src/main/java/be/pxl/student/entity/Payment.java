@@ -12,7 +12,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    private long id;
     @ManyToOne
     private Account counterAccount;
     @ManyToOne
@@ -82,7 +82,7 @@ public class Payment {
     }
 
     public long getId() {
-        return Id;
+        return id;
     }
 
     public Account getCounterAccount() {
